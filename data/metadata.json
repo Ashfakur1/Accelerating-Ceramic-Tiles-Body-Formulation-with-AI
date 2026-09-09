@@ -1,0 +1,194 @@
+{
+  "materials": [
+    "AG98",
+    "AG22",
+    "AG23",
+    "SodaF",
+    "PotashF",
+    "Crushing",
+    "ETP",
+    "NaSil"
+  ],
+  "targets": [
+    "MOR_MPa",
+    "WA_pct",
+    "Shrinkage_pct"
+  ],
+  "bounds": {
+    "AG98": [
+      15.0,
+      20.0
+    ],
+    "AG22": [
+      2.5,
+      4.0
+    ],
+    "AG23": [
+      10.0,
+      15.0
+    ],
+    "SodaF": [
+      37.0,
+      43.0
+    ],
+    "PotashF": [
+      15.0,
+      22.0
+    ],
+    "Crushing": [
+      2.0,
+      3.5
+    ],
+    "ETP": [
+      2.0,
+      3.1
+    ],
+    "NaSil": [
+      0.5,
+      1.5
+    ]
+  },
+  "cost_tk_per_kg": {
+    "AG98": 6.95,
+    "AG22": 8.37,
+    "AG23": 7.024,
+    "SodaF": 8.887,
+    "PotashF": 6.241,
+    "Crushing": 0.0,
+    "ETP": 0.0,
+    "NaSil": 23.369
+  },
+  "co2_kg_per_kg": {
+    "AG98": [
+      0.129,
+      0.129
+    ],
+    "AG22": [
+      0.129,
+      0.129
+    ],
+    "AG23": [
+      0.129,
+      0.129
+    ],
+    "SodaF": [
+      0.053,
+      0.053
+    ],
+    "PotashF": [
+      0.0286,
+      0.0286
+    ],
+    "Crushing": [
+      0.587,
+      0.587
+    ],
+    "ETP": [
+      0.242,
+      0.242
+    ],
+    "NaSil": [
+      0.433,
+      0.433
+    ]
+  },
+  "co2_midpoint": {
+    "AG98": 0.129,
+    "AG22": 0.129,
+    "AG23": 0.129,
+    "SodaF": 0.053,
+    "PotashF": 0.0286,
+    "Crushing": 0.587,
+    "ETP": 0.242,
+    "NaSil": 0.433
+  },
+  "proc_defaults": {
+    "press_bar": 100,
+    "dryer_time_min": 45,
+    "kiln_time_min": 90,
+    "kiln_temp_C": 1210,
+    "calorific_NG_Kcal_Nm3": 8300,
+    "dryer_temp_C": 180.0,
+    "gas_Nm3_per_m2": 1.4115,
+    "green_length_mm": 109.2,
+    "green_width_mm": 54.6,
+    "green_thickness_mm": 9.8,
+    "green_weight_g": 98.5,
+    "fired_length_mm": 98.0,
+    "fired_weight_g": 95.05
+  },
+  "n_lab_batches": 8,
+  "n_synthetic": 1000,
+  "generation_method": "Physics-informed non-linear surrogate. Linear terms: Ridge regression (\u03bb=0.1) on 8 lab batches + ceramic sintering sign priors (Hoerl & Kennard 1970; Reed 1995). Non-linear terms: Clay\u00d7Feldspar interaction + AG98 quadratic, calibrated to minimise RMSE on 8 laboratory batches (Carty & Senapati 1998 DOI:10.1111/j.1151-2916.1998.tb02439.x).",
+  "noise_model": "heteroscedastic \u2014 \u03c3(d) = \u03c3_base\u00b7(1 + d/d_ref); \u03c3_base = 4% of observed range",
+  "validation_method": "Leave-One-Out cross-validation on 8 laboratory batches (Ridge coefficients refit per fold to prevent leakage); threshold 25% of observed range per target",
+  "physics_coefficients": {
+    "AG98": {
+      "shrinkage": 0.25,
+      "wa": -0.10559324256100752,
+      "mor": 2.783699901272991
+    },
+    "AG22": {
+      "shrinkage": 1.1889911770107262,
+      "wa": -0.15100609910354257,
+      "mor": 14.714264743872342
+    },
+    "AG23": {
+      "shrinkage": 0.25,
+      "wa": -0.03295900461214328,
+      "mor": 4.90111379119903
+    },
+    "SodaF": {
+      "shrinkage": -0.25,
+      "wa": 0.055461502714511106,
+      "mor": -3.4845257391133866
+    },
+    "PotashF": {
+      "shrinkage": -0.2967301874435324,
+      "wa": 0.07734062676197903,
+      "mor": -7.603480634844444
+    },
+    "Crushing": {
+      "shrinkage": -0.3,
+      "wa": -0.3206701979773323,
+      "mor": 5.5940366595984505
+    },
+    "ETP": {
+      "shrinkage": 0.05,
+      "wa": -0.8218982628303314,
+      "mor": 1.8377973045772806
+    },
+    "NaSil": {
+      "shrinkage": 0.0075,
+      "wa": -0.0012,
+      "mor": 0.06
+    }
+  },
+  "interaction_coefficients": {
+    "MOR_MPa": -0.08,
+    "Shrinkage_pct": 0.012,
+    "WA_pct": -0.003
+  },
+  "ag98_quadratic_coefficients": {
+    "MOR_MPa": -0.15,
+    "Shrinkage_pct": 0.0,
+    "WA_pct": 0.0
+  },
+  "lab_composition_means": {
+    "AG98": 17.353940548103864,
+    "AG22": 3.3524186430438316,
+    "AG23": 12.957500965406377,
+    "SodaF": 40.51778174992937,
+    "PotashF": 19.046518086166344,
+    "Crushing": 3.063638502810317,
+    "ETP": 2.7900347397835974,
+    "NaSil": 0.9181667647563012
+  },
+  "lab_property_means": {
+    "MOR_MPa": 53.28320694375,
+    "WA_pct": 0.8474625,
+    "Shrinkage_pct": 10.98375
+  },
+  "data_hash": "47225149",
+  "generated_at": "2026-09-09 13:27 UTC"
+}
